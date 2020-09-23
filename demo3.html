@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格内过滤</title>
+</head>
+<style>
+    table {
+        border: 0;
+        border-collapse: collapse;
+    }
+
+    td {
+        font: normal 12px/17px Arial;
+        padding: 2px;
+        width: 100px;
+    }
+
+    th {
+        font: bold 12px/17px Arial;
+        padding: 4px;
+        text-align: left;
+        width: 100px;
+    }
+</style>
+
+<body>
+    <br />
+    筛选
+    <input type="text" id="filterName">
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>地点</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>杭州</td>
+            </tr>
+            <tr>
+                <td>张4</td>
+                <td>nv</td>
+                <td>杭州</td>
+            </tr>
+            <tr>
+                <td>张5</td>
+                <td>男</td>
+                <td>辽宁</td>
+            </tr>
+            <tr>
+                <td>张6</td>
+                <td>女</td>
+                <td>苏州</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>杭州</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="./canvas/canvas验证码登陆框/jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            $('#filterName').on('keyup', function () {
+                $('tbody tr').hide().children().filter('td:contains(' + this.value + ')').parent().show();
+            });
+        });
+    </script>
+</body>
+
+</html>
