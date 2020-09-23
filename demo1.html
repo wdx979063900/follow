@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+
+<body>
+    <div class="centent">
+        <select name="" multiple="multiple" id="select1">
+            <option value="1">选项1</option>
+            <option value="2">选项2</option>
+            <option value="3">选项3</option>
+            <option value="4">选项4</option>
+            <option value="5">选项5</option>
+            <option value="6">选项6</option>
+            <option value="7">选项7</option>
+        </select>
+        <div>
+            <span id="add">选中添加到右边</span>
+            <span id="add_all">all添加</span>
+        </div>
+    </div>
+
+    <div class="centent">
+        <select name="" multiple="multiple" id="select2">
+            <option value="8">选项8</option>
+        </select>
+        <div>
+            <span id="remove">选中删除到左边</span>
+            <span id="remove_all">全部删除到左边</span>
+        </div>
+    </div>
+    <script src="./canvas/canvas验证码登陆框/jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            $('#add').on('click', function () {
+                // 被选择的
+                $('#select1 option:selected').appendTo($('#select2'));
+            });
+
+            $('#add_all').on('click', function () {
+                $('#select1 option').appendTo($('#select2'));
+            });
+
+            $('#remove').on('click', function () {
+                $('#select2 option:selected').appendTo($('#select1'))
+            })
+
+            $('#remove_all').on('click', function () {
+                $('#select2 option').appendTo($('#select1'));
+            });
+
+            $('#select1 option').on('dblclick', function () {
+                $(this).appendTo($('#select2'));
+            });
+
+            $('#select2').on('dblclick', 'option', function () {
+                // 插入应该绑定在父元素上
+                $(this).appendTo($('#select1'));
+            });
+        }); 
+    </script>
+</body>
+
+</html>
