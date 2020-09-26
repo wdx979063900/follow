@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性盒模型</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .parent {
+            display: flex;
+            /* 设置弹性盒模型 */
+            flex-direction: row;
+            /*  设置元素排列方向colum， 垂直排列*/
+            /* box-direction: row-reverse; */
+            -webkit-box-direction: reverse;
+            
+            
+        }
+
+        .box {
+            height: 400px;
+            flex-grow: 1;
+            /* 每个子元素设置“1”份 */
+            width: 0;
+            /* 3个元素有内容的话也会保持1比1比1 */
+        }
+
+        .box1 {
+            background: #ff0000;
+        }
+
+        .box2 {
+            background: #00ff00;
+            /* overflow: scroll; */
+            /* 设置滚动 */
+        }
+
+        .box3 {
+            background: #ffff00;
+        }
+
+        /* .box4{
+           background: #0000ff;
+       } */
+    </style>
+</head>
+
+<body>
+    <!-- w3c标准盒模型：宽度=内容宽度
+         怪异/混杂模式：宽度=内容宽度+padding+border
+         box-sizing: content-box;将w3c转换为混杂模式
+     -->
+    <div class="parent">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <!-- <div class="box box3"></div> -->
+    </div>
+
+</body>
+
+</html>
