@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            border: 1px dashed;
+            margin: 100px auto;
+            perspective: 1000px;
+        }
+        #div2{
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+
+            /* transform: rotate(30deg); */
+            /* 旋转负数逆时针 */
+            /* transform-origin: 0 0; */
+            /* 设置旋转坐标00为父元素左上角顶点 */
+
+            /* transform: translate(100px,100px); */
+            /* 位移 */
+            
+            /* transform: scale(.5); */
+            /* 缩放，-0.5时缩小50%同时旋转180度 */
+
+            transform: rotateX(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">上的看美女2</div>
+    </div>
+</body>
+</html>

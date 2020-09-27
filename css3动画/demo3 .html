@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画animation</title>
+</head>
+<style>
+    #div1{
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+        background: #ff0000;
+
+        animation: move 3s linear forwards reverse 2s infinite;
+        /* 移动名字 持续事件 线性的 终点停止 倒着移动 延迟 无线循环动 */
+    }
+    @keyframes move{
+        0%{
+
+        }
+        20%{
+            transform: translate(50px);
+        }
+        40%{
+            transform: translate(100px);
+        }
+        60%{
+            transform: translate(150px);
+        }
+        80%{
+            transform: translate(200px);
+        }
+        100%{
+            transform: translate(250px);
+        }
+    }
+</style>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
