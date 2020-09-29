@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let_const</title>
+</head>
+
+<body>
+    <ul id="nav">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+    </ul>
+    <script>
+        // let 1.不存在变量提升  2.不允许重复定义  3.暂时性死区（不允许先赋值后定义）  4.不允许重复定义
+
+
+        // var = variable
+
+        // console.log(a);
+        // var a = 5;
+
+
+        // var i = 8;
+        // for (i = 0; i < 5; i++) {
+        //     console.log(i); //1,2,3,4
+        // }
+        // console.log(i);//5  var没有块级作用域
+
+
+        // es6中引出let定义关键字 
+        // console.log(a);
+        // let a = 5;//1.不存在变量提升
+        // let a = 5;
+        // let a = 6;
+        // console.log(a);//2.不允许重复定义
+
+
+        // var aLi = document.querySelectorAll('#nav li');
+        // for (var i = 0; i < aLi.length; i++) {
+        //     (function (idx) {
+        //         aLi[idx].onclick = function () {
+        //             console.log(idx);
+        //         };//闭包
+        //     })(i);
+
+        // }
+
+
+        // 闭包：外部函数里面有内部函数，内部函数引用外部函数的变量，外部函数变量不会被释放。
+
+
+        const a = 5; //const不能被改变，不改变的是地址，也就是说对象可以改变
+        const obj = {
+            name: 'Marry',
+            age: 19
+        };
+        // Object.freeze(obj); //冻结对象后，不能被改编
+        obj.age = 20;
+        console.log(obj);//age:'20'
+    </script>
+</body>
+
+</html>
