@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        //1.类数组
+        // let ali = document.querySelectorAll('#ul1 li');
+        // var arr = Array.from(ali);//转换为类数组
+        // var [li1,li2,li3,li4] = ali; 
+        // console.log(li1,li2,li3,li4)
+        // arr.push(5);
+        // console.log(arr);
+
+
+
+        // 2.Array.of()将一组值，转换为数组
+        // let arr = Array.of(1,true,'aa',[1,2,3],{name:'wdx'})
+        // console.log(arr);
+
+
+        // 3.arr.fill()和new Array(3).fill(7),为数组填充初始值，第二种方法一般用于初始化数组
+        // let arr = [1,2,3,4,5];
+        // console.log(arr.fill('xx',1,2));
+        // let arr1 = new Array(3).fill(7);
+        // console.log(arr1);
+
+
+
+
+        // 4.indexOf()获取索引值
+        // let arr = [1,2,3,NaN,4,5];
+        // console.log(arr.indexOf(3));//该方法问题是数组里即使有NaN，也会返回false
+        // console.log(arr.includes(NaN));//boolean
+
+
+
+        //5.for....of循环，遍历列表
+        let arr = ['a', 'b', 'c', 'd', 'e'];
+        // for (let i = 0; i < arr.length; i++) {
+        //     console.log(arr[i]);
+        // }
+
+
+        // for(let item of arr) {
+            // console.log(item);//取出值
+        // }
+
+
+        // for(let item of arr.keys()) {
+            // console.log(item);//取出索引值
+        // }
+
+
+
+        // for(let [index,item] of arr.entries()) {
+            // console.log(index,item);//取出键值对
+        // }
+
+
+        // arr.forEach(function(elem,index,self) {
+            // console.log(elem,index,self);//遍历数组，三个参数值，索引，数组本身
+        // })
+
+
+
+        let arr2 = [2,3,4,5,6,7];
+        // var arr3 = arr2.map(function(elem,index,self) {//该函数返回的是一个新的数组
+        //     if(elem>5){
+        //         return elem;
+        //     }
+        // })
+        // console.log(arr3);//[undefined, undefined, undefined, undefined, 6, 7]
+
+        // var arr3 = arr2.filter(function(elem,index,self) {//该函数返回的是一个新的数组
+        //     if(elem>5){
+        //         return elem;
+        //     }
+        // })
+        // console.log(arr3);//[6, 7]
+
+        var arr3 = arr2.some(function(elem,index,self) {
+            if(elem>5){
+                return elem;
+            }
+        })
+        console.log(arr3);//有一个有就返回true
+
+        var arr3 = arr2.every(function(elem,index,self) {
+            if(elem>5){
+                return elem;
+            }
+        })
+        console.log(arr3);//每个都有才会i返回true
+
+
+        // let arr = ['a','b','c'];
+        // console.log(arr.join(''));
+    </script>
+</body>
+
+</html>

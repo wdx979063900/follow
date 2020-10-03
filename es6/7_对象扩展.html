@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象扩展</title>
+</head>
+<body>
+    <script>
+        // let zs = 'wdx';
+        // let n = 'name';
+        // let age = 18;
+
+        // let obj = {
+        //         [n]:zs,//属性名表达式
+        //         age,
+        //         code(){
+        //             console.log('codding');
+        //         }
+        // };//对象的简洁表示法
+        // console.log(obj);
+        // obj.code();
+
+
+
+        // 判断对象相等
+
+        // obj1 = {
+        //     name:'wdx',
+        //     age:18
+        // }
+        // let obj2 = obj1;
+        // console.log(Object.is(obj1,obj2));//true
+        // console.log(Object.is(+0,-0));//false
+        // console.log(Object.is(NaN,NaN));//true
+        
+
+
+        //Object.assign()合并对象
+        obj1 = {
+            name:'wdx',
+            age:18
+        }
+        obj2 = {
+            name:'ls',
+            age:18
+        }
+        Object.assign(obj1,obj2);
+        obj2.age = 30;
+        console.log(obj1);//age:18
+        console.log(obj2);//age:30
+
+        console.log('age' in obj1);//true
+        let arr = [4,5,6];
+        console.log(4 in arr);
+
+
+    </script>
+</body>
+</html>

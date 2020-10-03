@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串扩展</title>
+</head>
+<body>
+    <script>
+        // 1.模板字符串（反引号）：${} 支持标签，换行，数学运算
+        // 2.includes()  VS indexOf()
+        // 3.startWith() endsWith()
+        // 4.padStart(5,'abc') padEnd()
+        // 5.repeat(5)
+
+
+        // 1.模板字符串（反引号）：${} 支持标签，换行，数学运算
+        // let h = 'hello';
+        // let str = `jsdal${h}jflajs;doja;oj`;
+        // console.log(str);
+
+
+
+        // 2.includes()  VS indexOf()
+        // let str = 'hello world';
+        // // console.log(str.indexOf('ll'))//'ll'返回首字母索引值,'llx'不包含返回-1
+        // // console.log(str.includes(ll));//返回布尔值
+
+        // console.log(str.startsWith('he'));//判断是否以he为开始，返回i布尔型
+        // console.log(str.endWith('he'));//判断是否以he为开始，返回i布尔型
+
+
+        // 4.padStart(5,'abc') padEnd()
+        // let str = 'xy';
+        // console.log(str.padStart(5,'abc'));//在前面填充字符串
+
+
+
+        // 5.repeat(5)
+        let str = 'xy';
+        console.log(str.repeat(5));//重复填充5遍自身
+    </script>
+</body>
+</html>

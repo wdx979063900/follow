@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jiegou</title>
+</head>
+
+<body>
+    <!-- 块级作用域{let food = 'milk'}内部作用域的内部变量，外部不可以调用 -->
+    <script>
+        function foo() {
+            let obj = {
+                name: 'wdx',
+                age: 18
+            };
+            return obj;
+        }
+        let { name, age } = foo();
+        console.log(name, age);
+        // 解构是将对象数组字符串的值根据索引和键快速取出的方式
+
+
+
+        // json的应用（前后端数据传输格式javascript Object Natation）
+        let json = '{"a":"hello","b":"world"}';
+        let obj = JSON.parse(json);//解析json格式转换成对象
+        console.log(obj);
+
+        let str = JSON.stringify(obj);//将对象转换成json格式
+        console.log(str);
+    </script>
+</body>
+
+</html>
