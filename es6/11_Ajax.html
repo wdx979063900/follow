@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+
+<body>
+    <!-- <script src="../canvas/canvas验证码登陆框/jquery-3.5.1.js"></script> -->
+    <script>
+        // jquery ajax
+        // $.get('http://www.xhxly.cn:8080/api.php?key=free&appid=0&msg=%E5%BD%A0%E5%A5%BD',(res) => {
+        //         console.log(res);
+        //     }, 'json');
+
+
+
+        // 原生的ajax
+        // 创建对象
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        // 发送请求
+        xmlhttp.open("GET", 'http://www.xhxly.cn:8080/api.php?key=free&appid=0&msg=%E5%BD%A0%E5%A5%BD', true);
+        xmlhttp.send();
+
+        // 服务端响应
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                console.log(xmlhttp.responseText);
+                let obj = JSON.parse(xmlhttp.responseText);
+                console.log(obj);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

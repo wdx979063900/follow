@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- symbol新的数据类型  防止与其他属性名冲突-->
+    <script>
+        // let name = Symbol('name');
+        // let age = Symbol();
+        // let obj = {
+        //     name:'wdx',
+        //     [name]:'zs',
+        //     [age]:18
+        // }
+        // console.log(obj);
+
+
+
+        // let s1 = new Set([5,6,5,6,8,7]);
+        // console.log(s1);
+        // set结构不允许重复数据，
+
+        //数组去重，set索引就是自己的值
+        // let arr= [1,2,2,2,5,4];
+        // let s2 = new Set(arr);
+        // console.log(s2);
+
+
+        // s2.add(9);
+        // s2.delete(2);
+        // console.log(s2.size);//长度
+        // console.log(s2.has(9));
+
+
+
+        var m1 = new Map();//类似于对象
+        m1.set('age',20)
+        console.log(m1);
+        console.log(m1.get('age'));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../canvas/canvas验证码登陆框/jquery-3.5.1.js"></script>
+    <script>
+        // $.get('./json/a.json',res=>{
+        //     console.log(res);
+        // })
+
+
+
+
+        // function getPromise(url) {
+        //     return new Promise((resolve,reject)=>{
+        //         $.get(url,res=>{
+        //             resolve(res);
+        //         },'json');
+        //     });
+        // }
+
+
+        // getPromise('./json/a.json').then(res=>{
+        //     console.log(res);
+        //     return getPromise('./json/b.json');
+        // },err=>{
+
+        // }).then(res=>{
+        //     console.log(res);
+        //     return getPromise('./json/c.json');
+        // },err=>{})
+
+
+
+
+        let p1 = new Promise((resolve,reject) =>{
+            setTimeout(()=>{
+                console.log('p1');
+                resolve(1);
+            },1000)
+        })
+        let p2 = new Promise((resolve,reject) =>{
+            setTimeout(()=>{
+                console.log('p2');
+                resolve(2);
+            },2000)
+        })
+        let p3 = new Promise((resolve,reject) =>{
+            setTimeout(()=>{
+                console.log('p3');
+                resolve(3);
+            },3000)
+        })
+        Promise.all([p1,p2,p3]).then(res=>{
+            console.log('全完成');
+            console.log(res);  
+        },err=>{})
+    </script>
+</body>
+</html>

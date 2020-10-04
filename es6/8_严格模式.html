@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es5严格模式</title>
+</head>
+
+<body>
+    <!-- 严格模式下'use strict'
+    1.全局变量必须显式声明
+    2.禁止this关键字指向全局对象，构造函数必须new
+    3.函数不能有重名的参数
+    4.禁止使用with语句
+    5.arguments.callee();
+    -->
+    <!-- <button id="btn">btn</button>
+    this的指向问题 -->
+    <script>
+        'use strict'
+
+        // 严格模式下，直接调用构造函数报错
+        // function Animal(name,age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // let a1 = new Animal('wdx',18);
+        // console.log(a1);
+
+
+
+
+        // 改变this指向call（）
+        // let obj = {
+        //     name:'wdx',
+        //     age:18
+        // }
+        // function foo(a,b) {
+        //     console.log(this);//指向windows
+        // }
+        // foo.call(obj,7,8);//指向obj
+        // foo.apply(obj,[7,8]);//指向obj
+        // foo.bind(obj)(2,3);//指向obj
+
+
+
+        // let oBtn = document.getElementById('btn');
+        // // oBtn.onclick = function() {
+        // //     var _this = this;
+        // //     setTimeout(function(){
+        // //         console.log(_this)
+        // //     },2000);
+        // // };
+        // oBtn.onclick = function() {
+        //     setTimeout(function(){
+        //         console.log(this)
+        //     }.bind(this),2000);
+        // };
+
+
+
+
+        // 5.
+        function fn(n) {
+            if (n == 1) {
+                return 1;
+            };
+            // return n * fn(n - 1);
+            return n*arguments.callee(n-1);//严格模式下不允许使用callee
+        }
+        console.log(fn(10));
+    </script>
+</body>
+
+</html>
