@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+    <style>
+        #div1 {
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+        }
+
+        #div2 {
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- {{msg}} -->
+        <!-- v-on:  简写  @ -->
+        <button v-on:click.once="add(2,$event)">add</button>
+        <div>{{count}}</div>
+        <input type="text" @keyup.enter="sum($event)" v-model="num">
+
+
+
+        <div id="div1" @click="clickDiv1">
+            <div id="div2" @click.stop="clickDiv2">
+
+            </div>
+        </div>
+
+        <a href="www.baidu.com" @click.prevent="bd()">baidu</a>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello world',
+                isLogin: true,
+                count: 0,
+                num: 0
+            },
+            methods: {
+                add(n, e) {
+                    this.count += n;
+                    console.log(e);
+                },
+                sum(e) {
+                    // if (e.keyCode == 13) {
+                    this.count += parseInt(this.num);
+                    // }
+                },
+                clickDiv1() {
+                    console.log(div1);
+                },
+                clickDiv2(e) {
+                    console.log(div2);
+                    // e.stopPropagation();
+                    
+                },
+                bd(){
+
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

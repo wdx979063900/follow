@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+</head>
+<body>
+    <div id="app">
+        <div v-text="msg"></div>
+        <div v-text="msg2"></div>
+        <div v-html="msg2"></div>
+        
+        <div v-if="isLogin">
+            v-if，dom结构销毁
+        </div>
+
+        <div v-show="isLogin">show 切换display的值，频繁切换时用v-show</div>
+    </div>
+    
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello world',
+                msg2:'<h1>hhhhh</h1>',
+                isLogin:true
+            }
+        });
+    </script>
+</body>
+</html>
