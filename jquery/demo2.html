@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单击行加亮并选中本行复选按钮</title>
+</head>
+<style>
+    table{
+        border: 0;
+        border-collapse: collapse;
+    }
+    td{
+        font: normal 12px/17px Arial;
+        padding: 2px;
+        width: 100px;
+    }
+    th{
+        font: bold 12px/17px Arial;
+        padding: 4px;
+        text-align: left;
+        width: 100px;
+    }
+    .even{
+        background-color: #FFF38F;
+    }
+    .odd{
+        background: #FFFFEE;
+    }
+    .selected{
+        background: #FF6500;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>姓名</th>
+                <th>姓名</th>
+                <th>姓名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="radio" name="choice" value=""></td>
+                <td>张三</td>
+                <td>男</td>
+                <td>辽宁</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="choice" value=""></td>
+                <td>张三</td>
+                <td>男</td>
+                <td>辽宁</td>
+            </tr>>
+            <tr>
+                <td><input type="radio" name="choice" value=""></td>
+                <td>张三</td>
+                <td>男</td>
+                <td>辽宁</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="choice" value=""></td>
+                <td>张三</td>
+                <td>男</td>
+                <td>辽宁</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="choice" value=""></td>
+                <td>张三</td>
+                <td>男</td>
+                <td>辽宁</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="choice" value="check"></td>
+                <td>张三</td>
+                <td>男</td>
+                <td>辽宁</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="./canvas/canvas验证码登陆框/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            $('tbody tr:even').addClass('even');
+            $('tbody tr:odd').addClass('odd');
+
+            $('tbody tr').on('click',function(){
+                $(this).addClass('selected').siblings().removeClass('selected').end()
+                .find('input[name="choice"]').prop('checked','checked');
+            });
+
+        });
+    </script>
+</body>
+
+</html>

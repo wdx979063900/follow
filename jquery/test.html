@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./text.css">
+    <style>
+        .aa{
+            background: #ff0000;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            padding: 20px;
+            border: 10px solid;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div</div>
+    <input type="text" value="张三" id="username">
+    <script src="./canvas/canvas验证码登陆框/jquery-3.5.1.js"></script>
+    <script>
+        $(function() {
+            // $('#div1').on('click',function(){
+            //     $(this).addClass('aa');
+            // })
+            $('#div1').on('click',function(){
+                // $(this).toggleClass('aa');  //选中效果
+
+                // $(this).css('width',function() {
+                //     return 20;
+                // })
+
+                // console.log($(this).css('width'))  //获取属性值
+
+                // 实现链式操作
+                // $(this).css('background','#f00').attr('aa','bb');
+
+                // console.log($('#div1').width()); //内容盒宽值
+                // console.log($('#div1').innerWidth());  //包含padding的宽度值
+                // console.log($('#div1').outerWidth(true));   //无true时边框盒宽度，有true时包含margin宽度值
+
+                // $(this).html('<h1>hhh</h1>');  //可以插入标签
+                // $(this).text('aaa');//只能插入文本
+
+                
+
+            })
+        })
+    </script>
+</body>
+</html>
