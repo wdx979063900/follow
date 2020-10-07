@@ -1,0 +1,7 @@
+#div1{
+    width: 200px;
+    height: 200px;
+    background: url(../img/cef2c6ac0004d85cce46797a057550ab.jpg) no-repeat;
+    border: 1px solid;
+    transform: rotate(30deg);
+}
