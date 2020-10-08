@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+input{
+    width: 90px;
+}
+#toDoList{
+    width: 450px;
+    height: 500px;
+    border: 1px solid;
+    margin: 30px auto;
+}
+.btn{
+    margin-bottom: 20px;
+}
+ul li{
+    margin-bottom: 20px;
+    list-style: none;
+    width: 450px;
+    height: 30px;
+    /* border: 1px solid red; */
+    background: #00ff00;
+}
+.red{
+    background: #ff0000;
+}

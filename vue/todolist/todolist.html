@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <link rel="stylesheet" href="./todolist.css">
+</head>
+
+<body>
+
+    <div id="toDoList">
+        <h1>todolist</h1>
+        <div class="btn"><span>名称</span>
+            <input type="text" placeholder="请输入名称">
+            <span>价格</span>
+            <input type="text" placeholder="0">
+            <button>增加</button>
+            <input type="text" placeholder="请输入关键字">
+            <button>查询</button></div>
+
+        <ul>
+            <li :class="product.isRed?'red':''" @click="select(product)" v-for="(product,index) in productList">
+                <input type="checkbox" name="" id="">
+                <button @click="del(index)">[X]</button>
+                <span>{{product.productName}}</span>
+                <span>{{product.productPrice}}</span>
+
+            </li>
+        </ul>
+
+        <button>删除选中</button>
+        总价：{{total}} 元
+    </div>
+
+
+
+    <script src="../vue.js"></script>
+
+
+    <script>
+        new Vue({
+            el: toDoList,
+            data() {
+                return {
+                    productList: [
+                        {
+                            productName: '衣服',
+                            productPrice: 123,
+                            isRed: false
+                        },
+                        {
+                            productName: '裤子',
+                            productPrice: 456,
+                            isRed: false
+                        },
+                        {
+                            productName: '鞋',
+                            productPrice: 222,
+                            isRed: false
+                        },
+                        {
+                            productName: '手机',
+                            productPrice: 8888,
+                            isRed: false
+                        },
+                        {
+                            productName: '帽子',
+                            productPrice: 216,
+                            isRed: false
+                        },
+                    ],
+                };
+            },
+            methods: {
+                select(product) {
+                    product.isRed = !product.isRed;
+                },del(index){
+                    this.productList.splice(index,1);
+                }
+            },
+            computed: {//计算属性
+                total() {
+                    // let sum = 0;
+                    // this.productList.filter((elem, index) => {//forEach函数也是遍历
+                    //     if (elem.isRed) {
+                    //         sum += elem.productPrice;
+                    //     }
+                    // })
+                    // return sum;
+
+
+                    // 求和也可以用reduce(function(),0)函数
+                    let result = this.productList.reduce((sum,elem)=>{
+                        if(elem.isRed) {
+                            sum+=elem.productPrice;
+                        }
+                        return sum;
+                    },0)
+                    return result;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
