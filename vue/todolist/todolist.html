@@ -13,16 +13,17 @@
     <div id="toDoList">
         <h1>todolist</h1>
         <div class="btn"><span>名称</span>
-            <input type="text" placeholder="请输入名称">
+            <input v-model="addName" type="text" placeholder="请输入名称">
             <span>价格</span>
-            <input type="text" placeholder="0">
-            <button>增加</button>
-            <input type="text" placeholder="请输入关键字">
-            <button>查询</button></div>
+            <input v-model="addPrice" type="text" placeholder="0">
+            <button @click="add">增加</button>
+            <input v-model="keyWords" type="text" placeholder="请输入关键字">
+            <button @click="search">查询</button></div>
 
         <ul>
             <li :class="product.isRed?'red':''" @click="select(product)" v-for="(product,index) in productList">
-                <input type="checkbox" name="" id="">
+                <input @click.stop v-model="checkList" :value="index" type="checkbox" name="" id="">
+                <!-- value绑定的是index，这个是动态属性，所以要将value值设定为：value动态属性 -->
                 <button @click="del(index)">[X]</button>
                 <span>{{product.productName}}</span>
                 <span>{{product.productPrice}}</span>
@@ -30,7 +31,7 @@
             </li>
         </ul>
 
-        <button>删除选中</button>
+        <button @click="delChecked">删除选中</button>
         总价：{{total}} 元
     </div>
 
@@ -71,13 +72,41 @@
                             isRed: false
                         },
                     ],
+                    checkList: [],
+                    addName: '',
+                    addPrice: '',
+                    selected:[],
                 };
             },
             methods: {
                 select(product) {
                     product.isRed = !product.isRed;
-                },del(index){
-                    this.productList.splice(index,1);
+                },
+                del(index) {
+                    this.productList.splice(index, 1);
+                },
+                delChecked() {
+                    this.productList = this.productList.filter((elem, index) => {
+                        if (!this.checkList.includes(index)) {
+                            return elem;
+                        }
+                    })
+                    this.checkList = [];
+                },
+                add() {
+                    this.productList.push({
+                        productName: this.addName,
+                        productPrice: parseInt(this.addPrice),
+                        isRed: false
+                    })
+                },
+                search(){
+                    this.selected=this.productList;
+                    this.productList=this.productList.filter((elem,index)=>{
+                        if(elem.productName.includes(this.keyWords)){
+                            return elem;
+                        }
+                    })
                 }
             },
             computed: {//计算属性
@@ -92,12 +121,12 @@
 
 
                     // 求和也可以用reduce(function(),0)函数
-                    let result = this.productList.reduce((sum,elem)=>{
-                        if(elem.isRed) {
-                            sum+=elem.productPrice;
+                    let result = this.productList.reduce((sum, elem) => {
+                        if (elem.isRed) {
+                            sum += elem.productPrice;
                         }
                         return sum;
-                    },0)
+                    }, 0)
                     return result;
                 }
             },
