@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+
+
+    <script src="./vue.js"></script>
+    <script>
+        Vue.component('button-counter',{//写在vue对象外面，即为全局组件，写在里面为局部
+            data() {
+                return {//用函数返回的对象，每次都是new object，数据互不干扰
+                    count:0
+                }
+            },
+            template:`<button @click="count++">计数这个按钮{{count}}次</button>`
+            // 组件内部不能第一级只能有一个元素，例如第一级可以用div包裹
+        })
+
+
+        new Vue({
+            el:'#app'
+        })
+    </script>
+</body>
+</html>

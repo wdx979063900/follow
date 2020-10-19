@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <weichuang></weichuang>
+        <weichuang></weichuang>
+        <weichuang></weichuang>
+        <ul>
+            <todolist @click.native="select(item)" v-for="(item, index) in productList" :productname="item.productName"
+                :productprice="item.productPrice"></todolist>
+            <!-- 组件添加点击事件时，应加上.native -->
+
+        </ul>
+
+
+
+
+
+    </div>
+
+
+    <template id="temp1">
+        <li>
+            <span>{{productname}}</span>
+            <span>{{productprice}}</span>
+        </li>
+    </template>
+
+
+    <script src=".//vue.js"></script>
+    <script>
+        Vue.component('weichuang', {
+            template: `
+            <div>
+                <h1>还是大课间活动</h1>
+                <h1>激动了撒娇啊时</h1>
+            </div>
+            `
+        })
+
+
+        Vue.component('todolist', {
+            template: '#temp1',
+            props: ['productname', 'productprice']
+        });
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    productList: [
+                        {
+                            productName: '衣服',
+                            productPrice: 123,
+                            isRed: false
+                        },
+                        {
+                            productName: '裤子',
+                            productPrice: 456,
+                            isRed: false
+                        },
+                        {
+                            productName: '鞋',
+                            productPrice: 222,
+                            isRed: false
+                        },
+                        {
+                            productName: '手机',
+                            productPrice: 8888,
+                            isRed: false
+                        },
+                        {
+                            productName: '帽子',
+                            productPrice: 216,
+                            isRed: false
+                        },
+                    ],
+                }
+            },
+            methods: {
+                select(item) {
+                    console.log(item.productName)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

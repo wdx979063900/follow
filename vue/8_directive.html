@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+    }
+    .div1 {
+        width: 200px;
+        height: 200px;
+        background: #f000f0;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div v-weichuang='bg'> 维创</div>
+        <h1 v-weichuang='bg2' >都好哈</h1>
+        <div class="div1" v-drag></div>
+    </div>
+    <script src="./vue.js"></script>
+
+    <script>
+        Vue.directive('weichuang', (el, binding, vNode) => {
+            // console.log(el);
+            // console.log(binding);
+            // console.log(vNode);
+            el.style.background = binding.value;
+        });
+
+
+        Vue.directive('drag', (el, binding, vNode) => {
+            el.style.position = 'absolute';
+            el.onmousedown = function(e){
+                let xDis = e.clientX - el.offsetLeft;
+                let yDis = e.clientY - el.offsetTop;
+                document.onmousemove = function(e){
+                    el.style.left = e.clientX-xDis + 'px';
+                    el.style.top = e.clientY-yDis + 'px';
+                }
+                
+            }
+            el.onmouseup = function(){
+                    document.onmousemove = null;    
+                }
+        })
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    bg: '#f00',
+                    bg2: '#0f0'
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
